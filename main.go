@@ -36,16 +36,20 @@ func readString(s string) string {
 }
 
 func readInt(s string) int {
-	fmt.Println((s))
+	for {
 
-	prompt()
+		fmt.Println((s))
 
-	userInput, _ := reader.ReadString('\n')
-	userInput = strings.Replace(userInput, "\n", "", -1)
+		prompt()
 
-	num, err := strconv.Atoi(userInput)
-	if err != nil {
-		fmt.Println("Please enter a whole number")
+		userInput, _ := reader.ReadString('\n')
+		userInput = strings.Replace(userInput, "\n", "", -1)
+
+		num, err := strconv.Atoi(userInput)
+		if err != nil {
+			fmt.Println("Please enter a whole number")
+		} else {
+			return num
+		}
 	}
-	return num
 }
